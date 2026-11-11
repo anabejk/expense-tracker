@@ -1,0 +1,163 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(26, 26, 26, 0.45);
+}
+
+.modal {
+  width: 100%;
+  max-width: 20rem;
+  padding: 1.2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  &.modal-error {
+    border-color: var(--red);
+
+    .modal-title {
+      color: var(--red);
+    }
+  }
+  &.modal-success {
+    border-color: var(--green);
+
+    .modal-title {
+      color: var(--green);
+    }
+  }
+
+  &.modal-expenses {
+    max-height: 90dvh;
+    max-width: 25rem;
+
+    .modal-title {
+      flex-shrink: 0;
+    }
+
+    .modal-body {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    .modal-actions {
+      flex-shrink: 0;
+    }
+
+    .modal-expenses-list {
+      padding: 0 0.6rem;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.2rem 1rem;
+    }
+
+    .modal-expenses-item {
+      padding: 0.2rem 0 0.4rem;
+      border-bottom: 1px solid var(--border);
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: subgrid;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .day-left {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+      }
+
+      .day-date {
+        font-family: var(--font-semi-bold);
+        font-weight: 600;
+        font-size: 0.8rem;
+        color: var(--accent);
+      }
+
+      .day-total {
+        font-family: var(--font-semi-bold);
+        font-weight: 600;
+        font-size: 0.8rem;
+      }
+
+      .day-total,
+      .amount {
+        font-variant-numeric: tabular-nums;
+      }
+
+      .day-right {
+        min-width: 0;
+      }
+
+      .expense-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
+      .expense {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.5rem;
+
+        .comment,
+        .amount {
+          font-family: var(--font-medium);
+          font-weight: 500;
+          font-size: 0.7rem;
+          color: var(--text-muted);
+        }
+
+        .comment {
+          text-align: left;
+        }
+
+        .amount {
+          text-align: right;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+
+.modal-title {
+  font-family: var(--font-semi-bold);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.modal-body {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+
+  .btn {
+    width: 50%;
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+  }
+}

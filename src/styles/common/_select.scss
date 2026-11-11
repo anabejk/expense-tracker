@@ -1,0 +1,42 @@
+.select-wrapper {
+  position: relative;
+  color: var(--text);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0.7rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform 0.2s ease;
+    pointer-events: none;
+  }
+  /* переворачивать стрелочку при открытии/закрытии */
+  &.open::after {
+    transform: translateY(-70%) rotate(-135deg);
+  }
+
+  .select {
+    cursor: pointer;
+    width: 100%;
+    padding: 0.2rem 1.6rem 0.2rem 0.7rem;
+    border: 1px solid var(--border);
+    background-color: var(--bg);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    outline: none;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--border);
+    }
+
+    &:focus-visible {
+      border-color: var(--accent);
+    }
+  }
+}

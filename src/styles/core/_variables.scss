@@ -1,0 +1,38 @@
+:root {
+  //fonts
+  --base-fz: 16px;
+  --default-font-text: -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
+  --font-regular: 'Manrope-Regular', var(--default-font-text);
+  --font-medium: 'Manrope-Medium', var(--default-font-text);
+  --font-semi-bold: 'Manrope-SemiBold', var(--default-font-text);
+  --font-bold: 'Manrope-Bold', var(--default-font-text);
+
+  //colors
+  --grey: #7a7b7b;
+  --grey-bg: #f3f1ef;
+  --grey-border: #d1cfcc;
+  --green: #1a9e5f;
+  --green-bg: #e8f7f0;
+  --green-border: #a3dfc0;
+  --yellow: #c47f00;
+  --yellow-bg: #fef8e7;
+  --yellow-border: #f5d87a;
+  --red: #c0392b;
+  --red-bg: #fdecea;
+  --red-border: #f5b7b1;
+  --bg: #f4f2ee;
+  --card: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #888;
+  --border: #e8e4dc;
+  --accent: #2c5f8a;
+  --accent-light: #e8f0f8;
+
+  //radius
+  --radius: 14px;
+  --radius-sm: 8px;
+
+  //layout
+  --header-h: 3.5rem;
+  --nav-h: 5rem;
+}

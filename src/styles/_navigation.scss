@@ -1,0 +1,55 @@
+.app-navigation {
+  flex-shrink: 0;
+  height: var(--nav-h);
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  border-radius: 1rem 1rem 0 0;
+  padding: 1rem;
+
+  &-wrap {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-link {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color .2s ease,
+    transform .15s ease;
+
+    &.active,
+    &:hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  .nav-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .nav-text {
+    font-size: 0.7rem;
+    font-weight: 600;
+    font-family: var(--font-semi-bold);
+  }
+}

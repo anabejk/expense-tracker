@@ -1,0 +1,78 @@
+/* success-msg, error-alert-msg */
+.success-msg,
+.error-alert-msg {
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: var(--font-medium);
+  text-align: center;
+}
+
+.success-msg {
+  color: var(--green);
+}
+
+.error-alert-msg {
+  color: var(--red);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  position: relative;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
+
+  .error-alert-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--accent-light);
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0.7rem;
+      height: 1px;
+      background-color: var(--accent);
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}
+
+/* collapsible wrapper for status messages */
+.status-collapse {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.status-collapse-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.status-enter-active,
+.status-leave-active {
+  transition: grid-template-rows 0.25s ease, opacity 0.25s ease;
+}
+
+.status-enter-from,
+.status-leave-to {
+  grid-template-rows: 0fr;
+  opacity: 0;
+}
+
+

@@ -1,0 +1,22 @@
+@use 'form';
+@use 'home';
+@use 'total';
+@use 'loader';
+
+.app-screen {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem 1rem;
+
+  &-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1rem;
+    border: 1px solid var(--border);
+  }
+}

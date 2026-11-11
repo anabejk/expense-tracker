@@ -1,0 +1,51 @@
+.app-header {
+  flex-shrink: 0;
+  height: var(--header-h);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1rem 1rem 0.5rem;
+  background: var(--bg);
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    flex-grow: 1;
+
+    .select-wrapper {
+      flex-grow: 1;
+    }
+  }
+
+  .logo-small {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-family: var(--font-bold);
+  }
+
+  .month-label {
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-semi-bold);
+  }
+
+  .btn.btn-signout {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.2rem 0.7rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    margin-left: auto;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-signout:hover {
+    background-color: var(--border);
+  }
+}

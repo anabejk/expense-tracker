@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  border: none;
+  background: none;
+  appearance: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+progress {
+  appearance: none;
+  border: none;
+  display: block;
+}
+
+address {
+  font-style: normal;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
+
