@@ -54,7 +54,8 @@ export function getReadableError(error) {
         case 'popup_closed':
             return {
                 title: 'Окно входа закрылось',
-                status: 'popup'
+                status: 'popup',
+                message: 'Если сайт открыт из Telegram или другого мессенджера — открой его в Safari или Chrome'
             }
 
         case 'unknown':
