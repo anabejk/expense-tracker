@@ -6,13 +6,18 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 0.4rem;
       margin-bottom: 0.6rem;
       font-family: var(--font-medium);
-      font-weight: 600;
+      font-weight: 500;
 
       .limit-label {
         font-size: 0.8rem;
         color: var(--text-muted);
+      }
+
+      .limit-month {
+        display: block;
       }
 
       .limit-amount {

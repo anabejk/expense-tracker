@@ -4,7 +4,10 @@
     <!-- Limit progress bar -->
     <div class="app-screen-card limit-block">
       <div class="limit-row">
-        <span class="limit-label">Потрачено в: {{ selectedMonthName }}</span>
+        <span class="limit-label">
+          Потрачено в:
+          <span class="limit-month">{{ selectedMonthName }}</span>
+        </span>
         <span class="limit-amount">{{ formatAmount(monthTotal) }} ฿ / {{ formatAmount(monthLimit) }} ฿</span>
       </div>
       <div class="progress-track">
