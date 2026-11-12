@@ -11,12 +11,12 @@
   flex-direction: column;
   justify-content: flex-start;
   gap: 0.5rem;
-  padding: 0.5rem 1rem 1rem;
+  padding: 0 1rem 0.5rem;
 
   &-card {
     background: var(--card);
     border-radius: var(--radius);
-    padding: 1rem;
+    padding: 0.8rem;
     border: 1px solid var(--border);
   }
 }
