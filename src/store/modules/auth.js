@@ -28,30 +28,35 @@ export default {
 
     actions: {
         initGoogleAuth({ commit, dispatch, state }) {
-                tokenClient = google.accounts.oauth2.initTokenClient({
-                client_id: CONFIG.CLIENT_ID,
-                scope: 'https://www.googleapis.com/auth/spreadsheets',
-                prompt: '',
-                callback: async (resp) => {
-                    if (resp.error) {
-                        commit ('errors/SET_ERROR', getReadableError(resp.error), { root: true })
-                        return
-                    }
-                    // Save token in localStorage
-                    const token = gapi.client.getToken()
-                    localStorage.setItem('gapi_token', JSON.stringify(token))
-                    console.log('Токен для входа получен')
-                    commit('SET_SIGNED_IN', true)
-                    console.log('Значение переменной isSignedIn', state.isSignedIn)
+            tokenClient = google.accounts.oauth2.initTokenClient({
+            client_id: CONFIG.CLIENT_ID,
+            scope: 'https://www.googleapis.com/auth/spreadsheets',
+            prompt: '',
+            callback: async (resp) => {
+            if (resp.error) {
+                commit ('errors/SET_ERROR', getReadableError(resp.error), { root: true })
+                return
+            }
+            // Save token in localStorage
+            const token = gapi.client.getToken()
+            localStorage.setItem('gapi_token', JSON.stringify(token))
+            console.log('Токен для входа получен')
+            commit('SET_SIGNED_IN', true)
+            console.log('Значение переменной isSignedIn', state.isSignedIn)
 
-                    // Call action from another module — must have { root: true }, otherwise Vuex will looking for "loadExpenses" inside auth
-                    try {
-                        await dispatch('expenses/loadExpenses', null, { root: true })
-                    } catch (e) {
-                        commit('errors/SET_ERROR', getReadableError(e), { root: true })
-                    }
-                    console.log('Вход успешен')
-                },
+            // Call action from another module — must have { root: true }, otherwise Vuex will looking for "loadExpenses" inside auth
+            try {
+                await dispatch('expenses/loadExpenses', null, { root: true })
+            } catch (e) {
+                commit('errors/SET_ERROR', getReadableError(e), { root: true })
+            }
+            console.log('Вход успешен')
+        },
+            error_callback: (err) => {
+                console.warn('Окно входа Google не сработало:', err.type)
+                commit ('errors/SET_ERROR', getReadableError({ status: err.type }), {  root: true})
+            }
+
             })
             commit('SET_AUTH_READY', true)
             console.log('Значение переменной isAuthReady', state.isAuthReady)

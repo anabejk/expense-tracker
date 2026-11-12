@@ -44,6 +44,26 @@ export function getReadableError(error) {
                 message: 'Попробуй позже'
             }
 
+        case 'popup_failed_to_open':
+            return {
+                title: 'Окно входа не открылось',
+                status: 'popup',
+                message: 'Разреши всплывающие окна или открой сайт в Safari / Chrome'
+            }
+
+        case 'popup_closed':
+            return {
+                title: 'Окно входа закрылось',
+                status: 'popup'
+            }
+
+        case 'unknown':
+            return {
+                title: 'Не удалось войти',
+                status: 'popup',
+                message: 'Попробуй открыть сайт в другом браузере'
+            }
+
         default:
             console.warn('Необработанная ошибка:', code, error)
 
