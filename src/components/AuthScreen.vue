@@ -3,7 +3,7 @@
     <div class="auth-card">
       <div class="logo">฿</div>
       <h1 class="title">Расходы</h1>
-      <p class="subtitle" v-if="!sessionExpired || !errorAlert">Войди через Google чтобы начать</p>
+      <p class="subtitle" v-if="!sessionExpired && !errorAlert">Войди через Google чтобы начать</p>
       <Transition name="status">
         <div v-if="errorAlert" class="status-collapse">
           <div class="status-collapse-inner">
