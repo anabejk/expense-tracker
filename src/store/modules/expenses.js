@@ -246,7 +246,7 @@ export default {
                     }
                 }
             })
-            console.log('Месяцы перед сортировкой:', months);
+            console.log('Месяцы перед сортировкой:',  [...months]);
             months.sort().reverse()
             console.log('Месяцы после сортировки:', months);
 
@@ -278,7 +278,11 @@ export default {
             }
 
             commit('SET_AVAILABLE_MONTHS', availableMonths)
-            commit('SET_SELECTED_MONTH', availableMonths[0].value)
+
+            if (!state.selectedMonth || !availableMonths.some(m => m.value === state.selectedMonth)) {
+                commit('SET_SELECTED_MONTH', availableMonths[0].value)
+            }
+
 
             console.log(state.selectedMonth)
             console.log('=== loadAvailableMonths завершён ===');
