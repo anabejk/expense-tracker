@@ -53,8 +53,7 @@ export default {
   computed: {
     ...mapState('auth', ['isSignedIn']),
     ...mapState('expenses', ['selectedMonth', 'form']),
-    ...mapState(['isLoading']),
-    ...mapGetters('expenses', ['todayTotal'])
+    ...mapState(['isLoading'])
   },
   async mounted() {
     // Загружаем клиент Google API
@@ -83,7 +82,6 @@ export default {
     console.log('Текущий год и месяц в формате YYYY-MM: ', this.todayMonthKey())
     // this.loadAvailableMonths()
     console.log('Стартовый месяц для подсчета: ', this.selectedMonth)
-    console.log('Сумма за день', this.todayTotal)
   },
   components: {
     AppDialog,

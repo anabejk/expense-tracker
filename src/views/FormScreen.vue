@@ -79,7 +79,7 @@
       <div v-else class="today-block">
         <div class="today-header">
           <span class="today-title">{{ formDate === todayFullDate() ? 'Сегодня:' : currentDayName(formDate) }}</span>
-          <span class="today-total" :class="todayColorClass">{{ formatAmount(todayTotal) }} ฿</span>
+          <span class="today-total" :class="todayColorClass">{{ formatAmount(selectedDateTotal) }} ฿</span>
         </div>
         <div class="expense-list">
           <div class="expense-item" v-for="(exp, i) in todayExpenses" :key="exp.id">
@@ -159,7 +159,7 @@ export default {
   computed: {
     ...mapState('expenses', ['categories', 'dayLimitGreen', 'dayLimitYellow', 'isSaving', 'successMsg', 'deletingId']),
     ...mapState('errors', ['errorAlert']),
-    ...mapGetters('expenses', ['todayTotal', 'todayExpenses', 'isBusy']),
+    ...mapGetters('expenses', ['selectedDateTotal', 'todayExpenses', 'isBusy']),
 
     // Form fields
     formDate: formField('date'),
@@ -186,8 +186,8 @@ export default {
 
     // Color for the today total amount
     todayColorClass() {
-      if (this.todayTotal <= this.dayLimitGreen) return 'color-green'
-      if (this.todayTotal <= this.dayLimitYellow) return 'color-yellow'
+      if (this.selectedDateTotal <= this.dayLimitGreen) return 'color-green'
+      if (this.selectedDateTotal <= this.dayLimitYellow) return 'color-yellow'
       return 'color-red'
     },
   }

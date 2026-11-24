@@ -343,14 +343,16 @@ export default {
             return map
         },
 
-        // Today total amount
+        // Selected date total amount
         // Result: number
-        todayTotal(state, getters) {
-            return getters.dailyTotals[state.form.date] || 0
+        selectedDateTotal(state, getters) {
+            return getters.todayExpenses.reduce((acc, e) => {
+                return acc + Number(e.amount || 0);
+            }, 0)
         },
 
         // Today total amount in details
-        // Result: number
+        // Result: [ {amount: , date: , category: , comment: , id: , rowIndex: }, ... ]
         todayExpenses(state) {
             return state.allExpenses.filter(e => e.date === state.form.date)
         },
